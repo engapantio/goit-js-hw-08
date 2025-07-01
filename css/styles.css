@@ -1,0 +1,48 @@
+:root {
+  --font-family: 'Montserrat', sans-serif;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: currentColor;
+  text-decoration: none;
+  height: 100%;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+body {
+  background-color: #fafafa;
+}
+
+.gallery {
+  width: 1440px;
+  height: 696px;
+  background: #fff;
+  padding: 24px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.gallery-item {
+  width: calc((100% - 48px) / 3);
+  height: 200px;
+}
+.gallery-image {
+  height: 100%;
+  width: 100%;
+}
+.gallery-item:hover {
+  height: 208px;
+}
