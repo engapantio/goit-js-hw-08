@@ -85,19 +85,34 @@ const markup = images
   `
   )
   .join('');
+const modalBox = basicLightbox.create(
+  `
+    <div>
+      <img src="" id="large-image" alt="">
+    </div>
+    `,
+  {
+    className: 'modal-box',
+    //onShow: inst =>
+    // gallery.addEventListener('click', e =>
+    //   inst.setAttribute('src', e.target.dataset.source)
+    // ),
+    //onClose: inst => inst.addEventListener('click', inst.close()),
+  }
+);
 gallery.innerHTML = markup;
 gallery.addEventListener('click', e => {
   e.preventDefault();
   if (e.target.nodeName === 'IMG') {
     console.log(e.target.dataset.source);
+    modalBox.show();
+    document
+      .querySelector('#large-image')
+      .setAttribute('src', e.target.dataset.source);
   }
 });
 
 /*
-6 - Підключення бібліотеки
-
-Бібліотека basicLightbox представляє повністю функціональне модальне вікно, яке відмінно підходить під нашу задачу. Використовуй CDN сервіс jsdelivr і додай в HTML файл посилання на мініфіковані (.min) JS та CSS файли бібліотеки.
-
 
 
 7 - Модальне вікно
