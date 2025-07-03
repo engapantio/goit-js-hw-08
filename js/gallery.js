@@ -63,16 +63,6 @@ const images = [
     description: 'Lighthouse Coast Sea',
   },
 ];
-/* <li class="gallery-item">
-  <a class="gallery-link" href="large-image.jpg">
-    <img
-      class="gallery-image"
-      src="small-image.jpg"
-      data-source="large-image.jpg"
-      alt="Image description"
-    />
-  </a>
-</li>*/
 
 const gallery = document.querySelector('ul.gallery');
 const markup = images
@@ -85,22 +75,24 @@ const markup = images
   `
   )
   .join('');
+
+gallery.innerHTML = markup;
+
 const modalBox = basicLightbox.create(
-  `
-    <div>
-      <img src="" id="large-image" alt="">
-    </div>
-    `,
+  '<img src="" id="large-image" alt="">',
   {
     className: 'modal-box',
-    //onShow: inst =>
-    // gallery.addEventListener('click', e =>
-    //   inst.setAttribute('src', e.target.dataset.source)
-    // ),
-    //onClose: inst => inst.addEventListener('click', inst.close()),
-  }
+    // onShow: () => {
+    //   gallery.addEventListener('click', e => {
+    //     document
+    //       .querySelector('#large-image')
+    //       .setAttribute('src', e.target.dataset.source);
+  } //);
+  /* },
+}
+ */
 );
-gallery.innerHTML = markup;
+
 gallery.addEventListener('click', e => {
   e.preventDefault();
   if (e.target.nodeName === 'IMG') {
@@ -113,20 +105,6 @@ gallery.addEventListener('click', e => {
 });
 
 /*
-
-
-7 - Модальне вікно
-
-Доповни свій код так, щоб при кліку по елементу галереї відкривалось модальне вікно підключеної бібліотеки. Для того щоб дізнатися, як ініціалізувати модальне вікно у своєму коді і як його використовувати, ознайомся з документацією і прикладами.
-
-
-
-8 - Велике зображення
-
-Використовуй свій код отримання посилання на велике зображення із атрибуту data-source, щоб замінити значення атрибута src елемента <img> в модальному вікні перед відкриттям. Використовуй готову розмітку модального вікна із зображенням із прикладів бібліотеки basicLightbox.
-
-
-
 На що буде звертати увагу ментор при перевірці:
 
 На живій сторінці відображається галерея зображень із масиву даних images
