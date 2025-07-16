@@ -82,8 +82,7 @@ const modalBox = basicLightbox.create(
   '<img src="" id="large-image" alt="">',
   {
     className: 'modal-box'
-  } ;
-
+  } 
 );
 
 gallery.addEventListener('click', e => {
