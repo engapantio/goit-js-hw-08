@@ -65,6 +65,7 @@ const images = [
 ];
 
 const gallery = document.querySelector('ul.gallery');
+
 const markup = images
   .map(
     image => `<li class="gallery-item">
@@ -78,21 +79,19 @@ const markup = images
 
 gallery.innerHTML = markup;
 
-const modalBox = basicLightbox.create(
-  '<img src="" id="large-image" alt="">',
-  {
-    className: 'modal-box'
-  } 
-);
-
 gallery.addEventListener('click', e => {
   e.preventDefault();
   if (e.target.nodeName === 'IMG') {
     console.log(e.target.dataset.source);
+    const modalBox = basicLightbox.create(
+      `<img src="${
+        e.target.dataset.source
+      }" id="large-image" alt="${e.target.getAttribute('alt')}">`,
+      {
+        className: 'modal-box',
+      }
+    );
     modalBox.show();
-    document
-      .querySelector('#large-image')
-      .setAttribute('src', e.target.dataset.source);
   }
 });
 
