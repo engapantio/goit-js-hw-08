@@ -81,16 +81,9 @@ gallery.innerHTML = markup;
 const modalBox = basicLightbox.create(
   '<img src="" id="large-image" alt="">',
   {
-    className: 'modal-box',
-    // onShow: () => {
-    //   gallery.addEventListener('click', e => {
-    //     document
-    //       .querySelector('#large-image')
-    //       .setAttribute('src', e.target.dataset.source);
-  } //);
-  /* },
-}
- */
+    className: 'modal-box'
+  } ;
+
 );
 
 gallery.addEventListener('click', e => {
